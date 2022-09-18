@@ -6,7 +6,7 @@ int main (int arc, char **argv){
 
     //check args here
     if (arc != 3 ){
-        std::cout << "eroor arg" << std::endl;
+        std::cout << "ERROR ARGV" << std::endl;
         exit(0);
     }
     int port = atoi(argv[1]);

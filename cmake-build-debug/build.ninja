@@ -63,6 +63,13 @@ build CMakeFiles/ft_irc.dir/src/server.cpp.o: CXX_COMPILER__ft_irc_Debug /Users/
   OBJECT_DIR = CMakeFiles/ft_irc.dir
   OBJECT_FILE_DIR = CMakeFiles/ft_irc.dir/src
 
+build CMakeFiles/ft_irc.dir/src/Json.cpp.o: CXX_COMPILER__ft_irc_Debug /Users/aizetta/Desktop/ft_irc/src/Json.cpp || cmake_object_order_depends_target_ft_irc
+  DEP_FILE = CMakeFiles/ft_irc.dir/src/Json.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6
+  INCLUDES = -I/Users/aizetta/Desktop/ft_irc/includes
+  OBJECT_DIR = CMakeFiles/ft_irc.dir
+  OBJECT_FILE_DIR = CMakeFiles/ft_irc.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ft_irc
@@ -71,7 +78,7 @@ build CMakeFiles/ft_irc.dir/src/server.cpp.o: CXX_COMPILER__ft_irc_Debug /Users/
 #############################################
 # Link the executable ft_irc
 
-build ft_irc: CXX_EXECUTABLE_LINKER__ft_irc_Debug CMakeFiles/ft_irc.dir/src/main.cpp.o CMakeFiles/ft_irc.dir/src/server.cpp.o
+build ft_irc: CXX_EXECUTABLE_LINKER__ft_irc_Debug CMakeFiles/ft_irc.dir/src/main.cpp.o CMakeFiles/ft_irc.dir/src/server.cpp.o CMakeFiles/ft_irc.dir/src/Json.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -mmacosx-version-min=11.6
   OBJECT_DIR = CMakeFiles/ft_irc.dir
   POST_BUILD = :

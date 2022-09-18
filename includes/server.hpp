@@ -1,4 +1,9 @@
+#pragma once
 #include <iostream>
+#include "Json.hpp"
+#include <fstream>
+
+#define CONFIG "../config/conf.json"
 
 class Server
 {
@@ -9,15 +14,5 @@ private:
 public:
     Server(int port, std::string pass);
     ~Server();
-
-    //private bool read_config(std::string configAddress)
-    //returns true on success
-    //return false on failure
-    //exit with error on false
+    bool loadConfig(std::string configAddress);
 };
-
-
-Server::~Server()
-{
-    //TODO: check if we alloced something and delete this shit if any
-}
