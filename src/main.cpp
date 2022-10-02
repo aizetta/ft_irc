@@ -17,7 +17,9 @@ int main (int arc, char **argv){
     //TODO: create server class here
     Server server(port, argv[2]);
     //init it with params from config >>  Server(int port, std::string pass);
-    //run it
+    //event listener here
+    //event writer here
+    //run server
     //main loop goes here
     //main loop listens to events and acts accordingly
     return 0;

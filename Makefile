@@ -2,7 +2,7 @@ SRC		=	main.cpp
 OBJ		=	$(SRC:.cpp=.o)
 NAME	=	ft_irc
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror -MD -MP -std=c++98
+CFLAGS	=	-Wall -Wextra -Werror -MD -MP #м-std=c++98
 DEPENDS :=	$(SRC:.cpp=.d)
 
 

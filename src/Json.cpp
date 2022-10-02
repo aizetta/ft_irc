@@ -3,7 +3,7 @@
 //
 
 #include "Json.hpp"
- Json::~Json() {
+Json::~Json() {
      //TODO: check if we alloced something and delete this shit if any
 }
 Json::Json(std::string nameFile) {
@@ -25,5 +25,6 @@ Json::Json(std::string nameFile) {
 
     jsonFile.close();
     std::cout << line << std::endl;
+
     std::cout << "END PARSE"<< std::endl;
 }
