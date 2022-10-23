@@ -16,6 +16,10 @@ int main (int arc, char **argv){
     //init shit her
     //TODO: create server class here
     Server server(port, argv[2]);
+    while (1)
+    {
+        server.connnectUser();
+    }
     //init it with params from config >>  Server(int port, std::string pass);
     //event listener here
     //event writer here

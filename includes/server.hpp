@@ -16,6 +16,8 @@ public:
 
     ~Server();
 
+    void connnectUser();
+
 
 
     bool loadConfig();
