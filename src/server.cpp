@@ -83,8 +83,8 @@ Server::Server(int port, std::string pass): port(port), password(pass) {
 }
 
 void Server::connnectUser(){
-
     int addrlen = sizeof(sockaddr);
+
     connection = accept(sockfd,(struct sockaddr*)&my_addr, (socklen_t*)&addrlen);
     if (connection < 0) {
         std::cout << "Failed to grab connection. errno: " << errno << std::endl;
@@ -92,34 +92,34 @@ void Server::connnectUser(){
     }
     std::cout << "!connection!"<< std::endl;
 
-
+    User new_user;
     char buffer[100];
     bzero(&buffer, 100);
     int bytes_sent = 0;
-    std::cout << "new" << std::endl;
-    bytes_sent = read(connection, buffer, 100);
-    std::cout << buffer << std::endl;
+    std::cout << "new user" << std::endl;
+    bytes_sent = read(connection, &buffer, 100);
+//    std::cout << buffer << std::endl;
+    new_user.parseUser(buffer);
     bzero(&buffer, 100);
-
-    std::cout << buffer << std::endl;
-    bzero(&buffer, 100);
+//    std::cout << buffer << std::endl;
+//    bzero(&buffer, 100);
 //    bytes_sent = 0;
 //    std::string message = ":IRCat 371 kekega :\n";
 //    bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
 //    if (bytes_sent)
 //        std::cout << bytes_sent << std::endl;
 //    bytes_sent = 0;
-////    message = ":IRCat 372 kekega :\n";
+//    message = ":IRCat 372 kekega :\n";
 //    bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
 //    if (bytes_sent)
 //        std::cout << bytes_sent << std::endl;
     bytes_sent = 0;
     std::string message = ":IRCat 376 твой_ник_на_сервере\n";
     bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
-    if (bytes_sent)
-        std::cout << bytes_sent << std::endl;
+//    if (bytes_sent)
+//        std::cout << bytes_sent << std::endl;
     bytes_sent = 0;
-    std::cout << "Good talking to you\n" << std::endl;
+//    std::cout << "Good talking to you\n" << std::endl;
     std::cout << "выход из цикла" << std::endl;
 //    // Send a message to the connection
 //    std::string response = "Good talking to you\n";
@@ -127,7 +127,9 @@ void Server::connnectUser(){
 }
 Server::~Server(){
     close(connection);
+    std::cout << "close(connection)" << std::endl;
     close(sockfd);
+    std::cout << "close(sockfd)" << std::endl;
     //TODO: check if we alloced something and delete this shit if any
 }
 

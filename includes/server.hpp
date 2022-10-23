@@ -6,9 +6,10 @@
 #include <netinet/in.h> // For sockaddr_in
 #include <cstdlib> // For exit() and EXIT_FAILURE
 #include <unistd.h> // For read
+#include "User.hpp"
 
 #define CONFIG "../config/conf.json"
-
+class User;
 class Server
 {
 public:
