@@ -45,7 +45,6 @@ Server::Server(int port, std::string pass): port(port), password(pass) {
 ////    int bytes_sent;
 //    bytes_sent = 0;
 //
-//
 //    //SEND MESSAGE THO
 //  //  if (msg.size() > 0)
 //  //      send(sockfd, msg.c_str(), msg.size(), IRC_NOSIGNAL);
