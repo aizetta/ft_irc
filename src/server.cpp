@@ -96,10 +96,11 @@ void Server::connnectUser(){
     char buffer[100];
     bzero(&buffer, 100);
     int bytes_sent = 0;
-    std::cout << "new user" << std::endl;
+    std::cout << "new user1" << std::endl;
     bytes_sent = read(connection, &buffer, 100);
 //    std::cout << buffer << std::endl;
     new_user.parseUser(buffer);
+    std::cout << "new user2" << std::endl;
     bzero(&buffer, 100);
 //    std::cout << buffer << std::endl;
 //    bzero(&buffer, 100);
