@@ -21,7 +21,7 @@ int main (int arc, char **argv){
     server.ListenSocket();
     while (1)
     {
-        server.ConnnectUser();
+        server.HandleConnectUser();
     }
     //Init it with params from config >>  Server(int port, std::string pass);
     //event listener here

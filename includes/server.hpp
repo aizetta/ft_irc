@@ -28,7 +28,8 @@ public:
     void ListenSocket();
     void Init();
 
-    void ConnnectUser();
+    void HandleConnectUser();
+    void HandleMessages();
 
     bool LoadConfig();
 //гетеры и сетеры

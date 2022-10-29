@@ -37,7 +37,7 @@ void Server::ListenSocket()
     std::cout << "!listen!"<< std::endl;
 }
 
-void Server::ConnnectUser()
+void Server::HandleConnectUser()
 {
     int addrlen = sizeof(sockaddr);
 
@@ -49,42 +49,30 @@ void Server::ConnnectUser()
     }
     std::cout << "!connection!"<< std::endl;
 
-    User new_user;
+    User* new_user = new User();
     char buffer[100];
     bzero(&buffer, 100);
     int bytes_sent = 0;
     std::cout << "new user1" << std::endl;
     bytes_sent = read(connection, &buffer, 100);
-//    std::cout << buffer << std::endl;
-    new_user.ParseUser(buffer);
+    new_user->ParseUser(buffer);
     std::cout << "new user2" << std::endl;
     bzero(&buffer, 100);
-//    std::cout << buffer << std::endl;
-//    bzero(&buffer, 100);
-//    bytes_sent = 0;
-//    std::string message = ":IRCat 371 kekega :\n";
-//    bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
-//    if (bytes_sent)
-//        std::cout << bytes_sent << std::endl;
-//    bytes_sent = 0;
-//    message = ":IRCat 372 kekega :\n";
-//    bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
-//    if (bytes_sent)
-//        std::cout << bytes_sent << std::endl;
     bytes_sent = 0;
     std::string message = ":IRCat 376 ";
-    message.append(new_user.GetNickName());
+    message.append(new_user->GetNickName());
     message.append("\n");
     bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
-//    if (bytes_sent)
-//        std::cout << bytes_sent << std::endl;
     bytes_sent = 0;
-//    std::cout << "Good talking to you\n" << std::endl;
+    userList.push_back(new_user);
     std::cout << "выход из цикла" << std::endl;
-//    // Send a message to the connection
-//    std::string response = "Good talking to you\n";
-//    send(connection, response.c_str(), response.size(), 0);
 }
+
+void Server::HandleMessages()
+{
+
+}
+
 Server::~Server()
 {
     close(connection);
