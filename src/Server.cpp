@@ -1,7 +1,7 @@
 #include <netdb.h>
 #include "Server.hpp"
 
-void Server::createSocket()
+void Server::CreateSocket()
 {
     sockfd = socket(AF_INET,SOCK_STREAM,0);
     if (sockfd  == -1)
@@ -11,7 +11,7 @@ void Server::createSocket()
     }
 }
 
-void Server::bindSocket()
+void Server::BindSocket()
 {
     //    ассициировать сокет с портом на машине
     my_addr.sin_family = AF_INET;
@@ -25,7 +25,7 @@ void Server::bindSocket()
     }
 }
 
-void Server::listenSocket()
+void Server::ListenSocket()
 {
     std::cout << "!soked = port!"<< std::endl;
     int users = 10;
@@ -37,7 +37,7 @@ void Server::listenSocket()
     std::cout << "!listen!"<< std::endl;
 }
 
-void Server::connnectUser()
+void Server::ConnnectUser()
 {
     int addrlen = sizeof(sockaddr);
 
@@ -56,7 +56,7 @@ void Server::connnectUser()
     std::cout << "new user1" << std::endl;
     bytes_sent = read(connection, &buffer, 100);
 //    std::cout << buffer << std::endl;
-    new_user.parseUser(buffer);
+    new_user.ParseUser(buffer);
     std::cout << "new user2" << std::endl;
     bzero(&buffer, 100);
 //    std::cout << buffer << std::endl;
@@ -73,7 +73,7 @@ void Server::connnectUser()
 //        std::cout << bytes_sent << std::endl;
     bytes_sent = 0;
     std::string message = ":IRCat 376 ";
-    message.append(new_user.getNickName());
+    message.append(new_user.GetNickName());
     message.append("\n");
     bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
 //    if (bytes_sent)
@@ -97,7 +97,7 @@ Server::~Server()
 //returns true on success
 //private bool read_config(std::string configAddress)
 //exit with error on false
-bool Server::loadConfig()
+bool Server::LoadConfig()
 {
     Config    file();
     std::cout << "ZBS" << std::endl;
@@ -106,60 +106,60 @@ bool Server::loadConfig()
 
 //гетеры и сетеры
 
-int Server::getPort() const
+int Server::GetPort() const
 {
     return port;
 }
 
-const std::string &Server::getPassword() const
+const std::string &Server::GetPassword() const
 {
     return password;
 }
 
-int Server::getSockfd() const
+int Server::GetSockfd() const
 {
     return sockfd;
 }
 
-const sockaddr_in &Server::getMyAddr() const
+const sockaddr_in &Server::GetMyAddr() const
 {
     return my_addr;
 }
 
-int Server::getConnection() const
+int Server::GetConnection() const
 {
     return connection;
 }
 
-void Server::setPassword(const std::string &password)
+void Server::SetPassword(const std::string &password)
 {
     this->password = password;
 }
 
-void Server::setSockfd(int sockfd)
+void Server::SetSockfd(int sockfd)
 {
     this->sockfd = sockfd;
 }
 
-void Server::setMyAddr(const sockaddr_in &myAddr)
+void Server::SetMyAddr(const sockaddr_in &myAddr)
 {
     my_addr = myAddr;
 }
 
-void Server::setConnection(int connection)
+void Server::SetConnection(int connection)
 {
     this->connection = connection;
 }
 
-void Server::setPort(int port)
+void Server::SetPort(int port)
 {
     this->port = port;
 }
 
-void Server::init()
+void Server::Init()
 {
-    //TODO: init params here
-//    loadConfig() == 1;
+    //TODO: Init params here
+//    LoadConfig() == 1;
 
 
 //    int addrlen = sizeof(sockaddr);

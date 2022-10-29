@@ -13,17 +13,17 @@ int main (int arc, char **argv){
     if (port > 49151 || port < 1024){
         std::cout << "ERROR PORT" << std::endl;
     }
-    //init shit her
+    //Init shit her
     //TODO: create server class here
     Server server(port, argv[2]);
-    server.createSocket();
-    server.bindSocket();
-    server.listenSocket();
+    server.CreateSocket();
+    server.BindSocket();
+    server.ListenSocket();
     while (1)
     {
-        server.connnectUser();
+        server.ConnnectUser();
     }
-    //init it with params from config >>  Server(int port, std::string pass);
+    //Init it with params from config >>  Server(int port, std::string pass);
     //event listener here
     //event writer here
     //run server

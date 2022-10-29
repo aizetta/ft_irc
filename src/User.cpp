@@ -9,7 +9,7 @@ User::User()
 
 }
 
-bool User::parseUser(char *buff)
+bool User::ParseUser(char *buff)
 {
     int i = 0;
     bool flag = true;
@@ -47,15 +47,18 @@ bool User::parseUser(char *buff)
     return false;
 }
 
-const std::string &User::getNickName() const {
+const std::string &User::GetNickName() const
+{
     return nickName;
 }
 
-const std::string &User::getUserName() const {
+const std::string &User::GetUserName() const
+{
     return userName;
 }
 
-const std::string &User::getRealName() const {
+const std::string &User::GetRealName() const
+{
     return realName;
 }
 

@@ -23,35 +23,35 @@ public:
 
     ~Server();
 
-    void createSocket();
-    void bindSocket();
-    void listenSocket();
-    void init();
+    void CreateSocket();
+    void BindSocket();
+    void ListenSocket();
+    void Init();
 
-    void connnectUser();
+    void ConnnectUser();
 
-    bool loadConfig();
+    bool LoadConfig();
 //гетеры и сетеры
 
-    int getPort() const;
+    int GetPort() const;
 
-    const std::string &getPassword() const;
+    const std::string &GetPassword() const;
 
-    int getSockfd() const;
+    int GetSockfd() const;
 
-    const sockaddr_in &getMyAddr() const;
+    const sockaddr_in &GetMyAddr() const;
 
-    int getConnection() const;
+    int GetConnection() const;
 
-    void setPassword(const std::string &password);
+    void SetPassword(const std::string &password);
 
-    void setSockfd(int sockfd);
+    void SetSockfd(int sockfd);
 
-    void setMyAddr(const sockaddr_in &myAddr);
+    void SetMyAddr(const sockaddr_in &myAddr);
 
-    void setConnection(int connection);
+    void SetConnection(int connection);
 
-    void setPort(int port);
+    void SetPort(int port);
 
 private:
     std::string         password;

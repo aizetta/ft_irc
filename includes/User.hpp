@@ -4,14 +4,15 @@
 #pragma once
 #include "Server.hpp"
 
-class User {
+class User
+{
 private:
 public:
-    const std::string &getNickName() const;
+    const std::string &GetNickName() const;
 
-    const std::string &getUserName() const;
+    const std::string &GetUserName() const;
 
-    const std::string &getRealName() const;
+    const std::string &GetRealName() const;
 
 private:
     std::string nickName;
@@ -19,6 +20,5 @@ private:
     std::string realName;
 public:
     User();
-    bool parseUser(char *buff);
-
+    bool ParseUser(char *buff);
 };
