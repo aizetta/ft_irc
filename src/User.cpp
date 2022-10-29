@@ -42,3 +42,15 @@ bool User::parseUser(char *buff) {
     return false;
 }
 
+const std::string &User::getNickName() const {
+    return nickName;
+}
+
+const std::string &User::getUserName() const {
+    return userName;
+}
+
+const std::string &User::getRealName() const {
+    return realName;
+}
+

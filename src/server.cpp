@@ -115,7 +115,9 @@ void Server::connnectUser(){
 //    if (bytes_sent)
 //        std::cout << bytes_sent << std::endl;
     bytes_sent = 0;
-    std::string message = ":IRCat 376 твой_ник_на_сервере\n";
+    std::string message = ":IRCat 376 ";
+    message.append(new_user.getNickName());
+    message.append("\n");
     bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
 //    if (bytes_sent)
 //        std::cout << bytes_sent << std::endl;
