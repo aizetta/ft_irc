@@ -12,8 +12,7 @@ bool User::parseUser(char *buff) {
     int i = 0;
     bool flag = true;
     int size_arr = std::strlen(buff);
-    std::string str = std::string(buff);
-    std::cout << str << std::endl;
+    std::string str = std::string(buff, size_arr);
     int start= str.find("USER");
     start += 5;
     int count = 0;
@@ -24,17 +23,18 @@ bool User::parseUser(char *buff) {
     std::cout <<"user = "<< userName << std::endl;
 
     start= str.find("localhost :");
+    start += 11;
     count = 0;
-    while (str[start + count] != ' ' || str[start + count] != '\n'){
+    while (str[start + count] != '\r'){
         count++;
     }
     realName= str.substr(start,count);
-    std::cout << realName << std::endl;
+    std::cout << "realName = "<< realName << std::endl;
 
     start = str.find("NICK");
     start += 5;
     count = 0;
-    while (str[start + count]){
+    while (str[start + count] != '\r'){
         count++;
     }
     nickName = str.substr(start,count);
