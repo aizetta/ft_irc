@@ -6,6 +6,14 @@
 
 class User {
 private:
+public:
+    const std::string &getNickName() const;
+
+    const std::string &getUserName() const;
+
+    const std::string &getRealName() const;
+
+private:
     std::string nickName;
     std::string userName;
     std::string realName;
