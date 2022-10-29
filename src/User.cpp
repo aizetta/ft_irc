@@ -4,11 +4,13 @@
 
 #include "User.hpp"
 
-User::User(){
+User::User()
+{
 
 }
 
-bool User::parseUser(char *buff) {
+bool User::parseUser(char *buff)
+{
     int i = 0;
     bool flag = true;
     int size_arr = std::strlen(buff);
@@ -16,7 +18,8 @@ bool User::parseUser(char *buff) {
     int start= str.find("USER");
     start += 5;
     int count = 0;
-    while (str[start + count] != ' '){
+    while (str[start + count] != ' ')
+    {
         count++;
     }
     userName = str.substr(start,count);
@@ -25,7 +28,8 @@ bool User::parseUser(char *buff) {
     start= str.find("localhost :");
     start += 11;
     count = 0;
-    while (str[start + count] != '\r'){
+    while (str[start + count] != '\r')
+    {
         count++;
     }
     realName= str.substr(start,count);
@@ -34,11 +38,11 @@ bool User::parseUser(char *buff) {
     start = str.find("NICK");
     start += 5;
     count = 0;
-    while (str[start + count] != '\r'){
+    while (str[start + count] != '\r')
+    {
         count++;
     }
     nickName = str.substr(start,count);
     std::cout <<"nick = "<< nickName << std::endl;
     return false;
 }
-

@@ -2,10 +2,7 @@
 // Created by Abathur Izetta on 10/23/22.
 //
 #pragma once
-#include "server.hpp"
-#ifndef FT_IRC_USER_HPP
-#define FT_IRC_USER_HPP
-
+#include "Server.hpp"
 
 class User {
 private:
@@ -17,6 +14,3 @@ public:
     bool parseUser(char *buff);
 
 };
-
-
-#endif //FT_IRC_USER_HPP

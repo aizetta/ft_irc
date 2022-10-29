@@ -8,19 +8,27 @@
 #include <unistd.h> // For read
 #include "User.hpp"
 #include <map>
+#include <vector>
 
 #define CONFIG "../config/conf.json"
 class User;
 class Server
 {
 public:
-    Server(int port, std::string pass);
+
+    Server(int port, std::string pass)
+    : port(port)
+    , password(pass)
+    {}
 
     ~Server();
 
+    void createSocket();
+    void bindSocket();
+    void listenSocket();
+    void init();
+
     void connnectUser();
-
-
 
     bool loadConfig();
 //гетеры и сетеры
@@ -46,11 +54,11 @@ public:
     void setPort(int port);
 
 private:
-    std::string password;
-    int         sockfd;
-    sockaddr_in my_addr;
-    int connection;
-    int port;
-    std::map<std::string,User> userList;
+    std::string         password;
+    int                 sockfd;
+    sockaddr_in         my_addr;
+    int                 connection;
+    int                 port;
+    std::vector<User*>  userList;
 
 };

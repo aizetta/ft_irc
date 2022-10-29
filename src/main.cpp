@@ -1,5 +1,5 @@
 //all sorts of includes go here
-#include "server.hpp"
+#include "Server.hpp"
 #include <cstdlib>
 
 int main (int arc, char **argv){
@@ -16,6 +16,9 @@ int main (int arc, char **argv){
     //init shit her
     //TODO: create server class here
     Server server(port, argv[2]);
+    server.createSocket();
+    server.bindSocket();
+    server.listenSocket();
     while (1)
     {
         server.connnectUser();

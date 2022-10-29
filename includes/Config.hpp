@@ -1,9 +1,8 @@
 //
 // Created by Abathur Izetta on 9/17/22.
 //
+#pragma once
 
-#ifndef FT_IRC_CONFIG_HPP
-#define FT_IRC_CONFIG_HPP
 #include <map>
 #include <iostream>
 #include <string>
@@ -46,6 +45,3 @@ private:
     std::string                        passwordToServer;
     int                                userCountMax;
 };
-
-
-#endif //FT_IRC_CONFIG_HPP
