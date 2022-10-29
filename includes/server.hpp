@@ -7,6 +7,7 @@
 #include <cstdlib> // For exit() and EXIT_FAILURE
 #include <unistd.h> // For read
 #include "User.hpp"
+#include <map>
 
 #define CONFIG "../config/conf.json"
 class User;
@@ -50,5 +51,6 @@ private:
     sockaddr_in my_addr;
     int connection;
     int port;
+    std::map<std::string,User> userList;
 
 };
