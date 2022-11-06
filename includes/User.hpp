@@ -18,6 +18,8 @@ private:
     std::string nickName;
     std::string userName;
     std::string realName;
+    int connection; //maybe useless, see later
+    bool isOper; //am i an operator?
 public:
     User();
     bool ParseUser(char *buff);

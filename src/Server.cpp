@@ -18,7 +18,7 @@ void Server::BindSocket()
     my_addr.sin_family = AF_INET;
     my_addr.sin_addr.s_addr = INADDR_ANY;
     my_addr.sin_port = htons(port);
-    std::cout << sockfd<< std::endl;
+//    std::cout << sockfd<< std::endl;
     if (bind(sockfd,(struct sockaddr*)&my_addr, sizeof(my_addr)) == -1)
     {
         std::cout << "Failed to bind to port "<< port << ". errno: " << errno << std::endl;
@@ -28,15 +28,17 @@ void Server::BindSocket()
 
 void Server::ListenSocket()
 {
-    std::cout << "!soked = port!"<< std::endl;
-    int users = 10;
+//    std::cout << "!soked = port!"<< std::endl;
+    int users = 10; //what?
     if (listen(sockfd, users) < 0)
     {
         std::cout << "Failed to listen on socket. errno: " << errno << std::endl;
         exit(EXIT_FAILURE);
     }
-    std::cout << "!listen!"<< std::endl;
+//    std::cout << "!listen!"<< std::endl;
 }
+
+
 
 void Server::HandleConnectUser()
 {
@@ -49,17 +51,17 @@ void Server::HandleConnectUser()
         std::cout << "Failed to grab connection. errno: " << errno << std::endl;
         exit(EXIT_FAILURE);
     }
-    std::cout << "!connection!"<< std::endl;
-    Message* message_handler = new Message();
+ //   std::cout << "!connection!"<< std::endl;
+//    Message* message_handler = new Message();
     User* new_user = new User();
     char buffer[100];
     bzero(&buffer, 100);
     int bytes_sent = 0;
-    std::cout << "new user1" << std::endl;
+//    std::cout << "new user1" << std::endl;
     bytes_sent = read(connection, &buffer, 100);
-    message_handler->PrintMessage(buffer);
+//    message_handler->PrintMessage(buffer);
     new_user->ParseUser(buffer);
-    std::cout << "new user2" << std::endl;
+//    std::cout << "new user2" << std::endl;
     bzero(&buffer, 100);
     bytes_sent = 0;
     std::string message = ":IRCat 376 ";
@@ -68,7 +70,7 @@ void Server::HandleConnectUser()
     bytes_sent = send(connection, message.c_str(), message.length(), 0x1022);
     bytes_sent = 0;
     userList.push_back(new_user);
-    std::cout << "выход из цикла" << std::endl;
+//    std::cout << "выход из цикла" << std::endl;
 }
 
 void Server::HandleMessages()
