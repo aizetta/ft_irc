@@ -1,0 +1,26 @@
+1. Обернуть обработку сообщений в месседж хендлер
+2. См. сабж:
+
+Because you have to use non-blocking file descriptors, it is
+possible to use read/recv or write/send functions with no poll()
+(or equivalent), and your server wouldn’t be blocking.
+But it would consume more system resources.
+Thus, if you try to read/recv or write/send in any file descriptor
+without using poll() (or equivalent), your grade will be 0.
+
+3. Проверять пароль при подключении, посылать нахуй с неверным паролем
+4. Личные сообщения
+5. Присоединиться к каналу, хуячить в него сообщения и получать их оттудова
+6. Роли пользователей: обычная кекега и какой-то оператор, админ, надо полагать
+7. См. сабж:
+
+Since MacOS doesn’t implement write() the same way as other Unix
+OSes, you are allowed to use fcntl().
+You must use file descriptors in non-blocking mode in order to get a
+behavior similar to the one of other Unix OSes.
+However, you are allowed to use fcntl() only as follows:
+fcntl(fd, F_SETFL, O_NONBLOCK);
+Any other flag is forbidden.
+
+8. См сабж п.3 в Mandatory Part: сбор сообщений по частям, они могут прийти кусками.
+9. Пока хардкод пускай, но хотелось бы норм конфиг
