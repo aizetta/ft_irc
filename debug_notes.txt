@@ -1,0 +1,17 @@
+user1 connects:
+addrlen == 16
+connection == 4
+my_addr: sin_port == 38091
+sockfd == 3
+
+
+secon user connects: all params are same but connection == 5
+
+note empty fields:
+PASS :1
+
+USER Adium * localhost :Adium User
+
+NICK memega
+
+so we search by NICK when send mssgs

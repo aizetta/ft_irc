@@ -1,5 +1,6 @@
 #include <netdb.h>
 #include "Server.hpp"
+#include "message.h"
 
 void Server::CreateSocket()
 {
@@ -41,6 +42,7 @@ void Server::HandleConnectUser()
 {
     int addrlen = sizeof(sockaddr);
 
+    //Поцоны тут брейкпоинт если поставите оно умрет, ета нормально
     connection = accept(sockfd,(struct sockaddr*)&my_addr, (socklen_t*)&addrlen);
     if (connection < 0)
     {
@@ -48,13 +50,14 @@ void Server::HandleConnectUser()
         exit(EXIT_FAILURE);
     }
     std::cout << "!connection!"<< std::endl;
-
+    Message* message_handler = new Message();
     User* new_user = new User();
     char buffer[100];
     bzero(&buffer, 100);
     int bytes_sent = 0;
     std::cout << "new user1" << std::endl;
     bytes_sent = read(connection, &buffer, 100);
+    message_handler->PrintMessage(buffer);
     new_user->ParseUser(buffer);
     std::cout << "new user2" << std::endl;
     bzero(&buffer, 100);
